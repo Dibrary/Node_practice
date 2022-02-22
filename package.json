@@ -17,6 +17,15 @@
   },
   "homepage": "https://github.com/Dibrary/Node_practice#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "nunjucks": "^3.2.3",
+    "sequelize": "^6.16.2",
+    "sequelize-cli": "^6.4.1"
   }
 }
