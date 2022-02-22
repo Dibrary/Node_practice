@@ -2,9 +2,9 @@
   "name": "node_express_practice",
   "version": "0.0.1",
   "description": "노드교과서 연습",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "nunjucks": "^3.2.3",
     "sequelize": "^6.16.2",
     "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
