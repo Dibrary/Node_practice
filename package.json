@@ -1,0 +1,22 @@
+{
+  "name": "node_express_practice",
+  "version": "0.0.1",
+  "description": "노드교과서 연습",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dibrary/Node_practice.git"
+  },
+  "author": "Dhoooon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dibrary/Node_practice/issues"
+  },
+  "homepage": "https://github.com/Dibrary/Node_practice#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
