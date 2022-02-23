@@ -1,5 +1,5 @@
 const express = require('express');
-const House = require('../models/house_tb');
+const House = require('../models/house');
 
 const router = express.Router();
 
@@ -30,11 +30,10 @@ router.get('/house/:tag', async (req, res) => {
     const house_tags = req.params.tag;
     console.log(req.params.tag);
 
-    // const tag_result = await House.findAll()
+    const tag_result = await House.findAll()
 
-    House.findOne({where:{house_tag : house_tags}}).then((hs) => {
-        console.log(hs.dataValues);
-    });
+    const exTag = await House.findOne({where:{house_tag : house_tags}})
+    console.log(exTag.dataValues.house_tag, "나오나??"); // 하나의 데이터의 경우에는 그냥 dataValues로 찾는다. (index안씀)
     const result = [];
 
     // for(const tmp of tag_result){
@@ -44,11 +43,40 @@ router.get('/house/:tag', async (req, res) => {
     // }
 
     // console.log(result);
-    console.log(result.dataValues.house_tag);
-    res.send(`The House Tag is  = ${result}`);
+    console.log(tag_result);
+    res.send(`The House Tag is  = ${tag_result[1].dataValues.house_tag} <br>    ${tag_result[0].dataValues.createdAt}`);
+
+    /* DB에서 데이터가 이렇게 반환된다. 그래서 [0]으로 해야 House값을 가져온다. (이 데이터는 findAll로 찾았기 때문이다.)
+    [
+  House {
+    dataValues: {
+      id: 1,
+      house_tag: 'House1',
+      createdAt: null,
+      updatedAt: null,
+      deletedAt: null
+    },
+    _previousDataValues: {
+      id: 1,
+      house_tag: 'House1',
+      createdAt: null,
+      updatedAt: null,
+      deletedAt: null
+    },
+    uniqno: 1,
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      raw: true,
+      attributes: [Array]
+    },
+    isNewRecord: false
+  }
+]
+    */
     // res.send(`The House Tag is  = ${tag_result.house_tag}`);
 });
-
-
 
 module.exports = router;
