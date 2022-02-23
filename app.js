@@ -5,6 +5,7 @@ const path = require('path'); // 경로관련
 const session = require('express-session');
 const nunjucks = require('nunjucks'); // html 템플릿
 const dotenv = require('dotenv'); // env파일 설정
+const {sequelize} = require('./models');
 
 dotenv.config();
 
@@ -18,6 +19,14 @@ nunjucks.configure('views', {
     express:app,
     watch:true,
 });
+
+
+sequelize.sync({force:false}).then(() => {
+    console.log("데이터베이스 연결 성공");
+}).catch((err) => {
+    console.error(err);
+});
+
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
