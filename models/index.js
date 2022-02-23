@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
-
-const House = require('./house_tb');
+const config = require('../config/config.json')[env];
+const House = require('./house');
 
 const db = {};
 const sequelize = new Sequelize(
